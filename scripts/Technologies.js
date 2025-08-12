@@ -1,6 +1,20 @@
+import { setTechnologyPackage } from "./TransientState.js"
+
+// handle change to technology selection
+const handleTechnologyChange = (event) => {
+    // was the technology section selected?
+    if (event.target.id === "technologies") {
+        // set transient state technologyId to selected tech package
+        setTechnologyPackage(event.target.value)
+    }
+}
+
 export const technologyOptions = async () => {
     const response = await fetch("http://localhost:8088/technology")
     const technologies = await response.json()
+
+    // create event listener
+    document.addEventListener("change", handleTechnologyChange)
 
     let technologiesHTML = `<h2>Technology Packages</h2>
                                 <select id="technologies">
