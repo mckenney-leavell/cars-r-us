@@ -1,0 +1,33 @@
+sequenceDiagram
+
+Paints -->> database: call paint color data
+database ->> Paints: return paint color data
+Paints ->> Paints: iterate data and render HTML
+Paints ->> main: render HTML to DOM
+
+Technologies -->> database: call technologies data
+database ->> Technologies: return technologies data
+Technologies ->> Technologies: iterate data and render HTML
+Technologies ->> main: render HTML to DOM
+
+Interiors -->> database: call interiors data
+database ->> Interiors: return interiors data
+Interiors ->> Interiors: iterate data and render HTML
+Interiors ->> main: render HTML to DOM
+
+Wheels -->> database: call wheels data
+database ->> Wheels: return wheels data
+Wheels ->> Wheels: iterate data and render HTML
+Wheels ->> main: render HTML to DOM
+
+TransientState -->> Paints: give me paint selection
+Paints ->> TransientState: return selection
+
+TransientState -->> Technologies: give me technologies selection
+Technologies ->> TransientState: return selection
+
+TransientState -->> Interiors: give me interiors selection
+Interiors ->> TransientState: return selection
+
+TransientState -->> Wheels: give me wheels selection
+Wheels ->> TransientState: return selection
