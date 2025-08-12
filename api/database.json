@@ -129,6 +129,13 @@
       "technologyId": 2,
       "wheelId": 4,
       "id": 6
+    },
+    {
+      "paintColorId": "3",
+      "interiorId": "3",
+      "technologyId": "2",
+      "wheelId": "2",
+      "id": 7
     }
   ]
 }

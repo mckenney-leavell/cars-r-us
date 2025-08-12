@@ -8,7 +8,7 @@ const transientState = {
 
 // create setter function for paint colors
 export const setPaintColor = (chosenPaintColor) => {
-    transientState.colorId = chosenPaintColor
+    transientState.paintColorId = chosenPaintColor
     console.log(transientState)
 }
 // create setter function for technology packages
@@ -40,7 +40,7 @@ export const placeOrder = async () => {
     const response = await fetch("http://localhost:8088/orders", postOptions)
     console.log(transientState)
 
-    transientState.colorId = 0
+    transientState.paintColorId = 0
     transientState.technologyId = 0
     transientState.interiorId = 0
     transientState.wheelId = 0
@@ -49,16 +49,3 @@ export const placeOrder = async () => {
     document.dispatchEvent(stateChangedEvent)
     console.log(transientState)
 }
-// create function to save user selections to orders array in database
-    // define post option for fetch() to API
-        // post transient state object with user selections
-    // reset transient state once order state is created
-    // trigger stateChanged custom event 
-        // call in main module to regenerate HTML upon button selection
-
-// export const clearTransientState = async () => {
-//     return 
-//     const stateResetEvent = new CustomEvent("updatedAPI")
-//     document.dispatchEvent(stateResetEvent)
-//     console.log(transientState)
-// }
