@@ -94,6 +94,13 @@
       "technologyId": 2,
       "wheelId": 4,
       "id": 1
+    },
+    {
+      "colorId": "1",
+      "interiorId": "2",
+      "technologyId": "3",
+      "wheelId": "4",
+      "id": 2
     }
   ]
 }

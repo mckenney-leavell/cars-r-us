@@ -26,3 +26,26 @@ export const setWheels = (chosenWheels) => {
     transientState.wheelId = chosenWheels
     console.log(transientState)
 }
+
+export const placeOrder = async () => {
+    const postOptions = {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+
+        body: JSON.stringify(transientState)
+    }
+
+    const response = await fetch("http://localhost:8088/orders", postOptions)
+
+    const stateChangedEvent = new CustomEvent("newSubmissionCreated")
+    document.dispatchEvent(stateChangedEvent)
+    console.log(transientState)
+}
+// create function to save user selections to orders array in database
+    // define post option for fetch() to API
+        // post transient state object with user selections
+    // reset transient state once order state is created
+    // trigger stateChanged custom event 
+        // call in main module to regenerate HTML upon button selection

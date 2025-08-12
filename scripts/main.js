@@ -2,6 +2,7 @@ import { paintOptions } from "./Paints.js"
 import { technologyOptions } from "./Technologies.js"
 import { interiorsOptions } from "./Interiors.js"
 import { wheelsOptions } from "./Wheels.js"
+import { createButton } from "./SubmitButton.js"
 
 const container = document.querySelector("#container")
 
@@ -10,6 +11,7 @@ const render = async() => {
     const technologiesHTML = await technologyOptions()
     const interiorsHTML = await interiorsOptions()
     const wheelsHTML = await wheelsOptions()
+    const buttonHTML = createButton()
 
     const composedHTML = `
         <h1>Cars-R-Us</h1>
@@ -30,7 +32,7 @@ const render = async() => {
         </article>
 
         <article class="selection">
-
+        ${buttonHTML}
         </article>
 
         <article class="customSelection">
@@ -39,5 +41,7 @@ const render = async() => {
     `
     container.innerHTML = composedHTML
 }
+
+document.addEventListener("newSubmissionCreated", render)
 
 render()
