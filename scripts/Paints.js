@@ -10,7 +10,7 @@ const handlePaintChange = (event) => {
 }
 
 export const paintOptions = async () => {
-    const response = await fetch("http://localhost:8088/paintColor")
+    const response = await fetch("http://localhost:8088/paintColors")
     const paints = await response.json()
 
     //create event listener

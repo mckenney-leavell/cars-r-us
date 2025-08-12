@@ -10,7 +10,7 @@ const handleTechnologyChange = (event) => {
 }
 
 export const technologyOptions = async () => {
-    const response = await fetch("http://localhost:8088/technology")
+    const response = await fetch("http://localhost:8088/technologies")
     const technologies = await response.json()
 
     // create event listener

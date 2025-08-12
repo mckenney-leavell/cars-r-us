@@ -10,7 +10,7 @@ const handleInteriorsChange = (event) => {
 }
 
 export const interiorsOptions = async () => {
-    const response = await fetch("http://localhost:8088/interior")
+    const response = await fetch("http://localhost:8088/interiors")
     const interiors = await response.json()
 
     // create event listener to initiate event handler

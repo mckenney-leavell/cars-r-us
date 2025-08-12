@@ -3,6 +3,7 @@ import { technologyOptions } from "./Technologies.js"
 import { interiorsOptions } from "./Interiors.js"
 import { wheelsOptions } from "./Wheels.js"
 import { createButton } from "./SubmitButton.js"
+import { orderSelections } from "./Orders.js"
 
 const container = document.querySelector("#container")
 
@@ -12,6 +13,7 @@ const render = async() => {
     const interiorsHTML = await interiorsOptions()
     const wheelsHTML = await wheelsOptions()
     const buttonHTML = createButton()
+    const orderHTML = await orderSelections()
 
     const composedHTML = `
         <h1>Cars-R-Us</h1>
@@ -36,12 +38,13 @@ const render = async() => {
         </article>
 
         <article class="customSelection">
-
+        ${orderHTML}
         </article>
     `
     container.innerHTML = composedHTML
 }
 
 document.addEventListener("newSubmissionCreated", render)
+document.addEventListener("updatedAPI", render)
 
 render()

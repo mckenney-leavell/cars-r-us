@@ -1,6 +1,6 @@
 // create empty order object to store selections
 const transientState = {
-    colorId: 0,
+    paintColorId: 0,
     interiorId: 0,
     technologyId: 0,
     wheelId: 0
@@ -38,6 +38,12 @@ export const placeOrder = async () => {
     }
 
     const response = await fetch("http://localhost:8088/orders", postOptions)
+    console.log(transientState)
+
+    transientState.colorId = 0
+    transientState.technologyId = 0
+    transientState.interiorId = 0
+    transientState.wheelId = 0
 
     const stateChangedEvent = new CustomEvent("newSubmissionCreated")
     document.dispatchEvent(stateChangedEvent)
@@ -49,3 +55,10 @@ export const placeOrder = async () => {
     // reset transient state once order state is created
     // trigger stateChanged custom event 
         // call in main module to regenerate HTML upon button selection
+
+// export const clearTransientState = async () => {
+//     return 
+//     const stateResetEvent = new CustomEvent("updatedAPI")
+//     document.dispatchEvent(stateResetEvent)
+//     console.log(transientState)
+// }
