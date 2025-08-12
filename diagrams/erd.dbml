@@ -1,32 +1,31 @@
 Table orders {
     id int [pk]
-    color varchar [ref: > paintColor.color]
-    interior varchar [ref: > interior.material]
-    technology varchar [ref: > technology.package]
-    wheels varchar [ref: > wheels.option]
+    colorId varchar [ref: > paintColors.id]
+    interiorId varchar [ref: > interiors.id]
+    technologyId varchar [ref: > technologies.id]
+    wheelId varchar [ref: > wheels.id]
+}
+
+Table paintColors {
+    id int [pk]
+    color varchar
     price int
 }
 
-Table paintColor {
-    id int [pk]
-    color varchar
-    price int [ref: < orders.price]
-}
-
-Table interior {
+Table interiors {
     id int [pk]
     material varchar
-    price int [ref: < orders.price]
+    price int
 }
 
-Table technology {
+Table technologies {
     id int [pk]
     package varchar
-    price int [ref: < orders.price]
+    price int
 }
 
 Table wheels {
     id int [pk]
     option varchar
-    price int [ref: < orders.price]
+    price int
 }
